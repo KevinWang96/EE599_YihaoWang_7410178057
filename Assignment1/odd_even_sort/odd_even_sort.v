@@ -31,6 +31,7 @@ module odd_even_sort #(
         for(i = 0; i < n; i = i + 1)
         begin : stage_loop
 
+            // instantiate stage module to form a pipeline
             odd_even_sort_stage 
             #(
                 .n(n),

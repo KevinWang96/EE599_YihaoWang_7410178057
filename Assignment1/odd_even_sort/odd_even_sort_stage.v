@@ -1,5 +1,5 @@
 /*
-    Odd even sort used to sort n k-bit inputs
+    One stage of odd even sort
     The results are registered by DFF arrays
 */
 module odd_even_sort_stage #(
@@ -21,6 +21,7 @@ module odd_even_sort_stage #(
        begin
             for(i = 0; i <= n / 2 - 1; i = i + 1)
             begin : always_loop_odd
+            
                 always @(posedge clk, posedge reset)
                 begin
                     if(reset) 
@@ -28,6 +29,7 @@ module odd_even_sort_stage #(
                     else
                         if(in[((2 * i + 1) * k - 1)-:k] <= in[((2 * i + 2) * k - 1)-:k])
                         begin
+                            // switch two number
                             out_reg[((2 * i + 1) * k - 1)-:k] <= in[((2 * i + 2) * k - 1)-:k];
                             out_reg[((2 * i + 2) * k - 1)-:k] <= in[((2 * i + 1) * k - 1)-:k];
                         end
@@ -56,7 +58,8 @@ module odd_even_sort_stage #(
                 end
 
             end
-
+            
+            // carry two number at both sides into output register
             always @(posedge clk, posedge reset)
             begin
                 if(reset) 

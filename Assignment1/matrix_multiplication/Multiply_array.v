@@ -1,3 +1,6 @@
+/*
+    k parallel multipliers with output register
+*/
 module Multiply_array #(
     parameter k = 8, // number of multipliers
     parameter WIDTH = 8 // width of inputs

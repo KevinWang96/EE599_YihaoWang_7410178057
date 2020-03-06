@@ -2,14 +2,15 @@
 module tb_odd_even_sort;
     parameter NUM_OF_INPUT = 4;
     parameter WIDTH_OF_INPUT = 8;
+
     parameter CLK_CYCLE = 10;
-    parameter NUM_OF_TEST = 30;
+    parameter NUM_OF_TEST = 30;// how many input patterns you want to test
 
     reg rst, clk;
     reg [NUM_OF_INPUT * WIDTH_OF_INPUT - 1:0] in;
     wire [NUM_OF_INPUT * WIDTH_OF_INPUT - 1:0] out;
 
-    
+    //DUT
     odd_even_sort #(
         .n(NUM_OF_INPUT),
         .k(WIDTH_OF_INPUT)
@@ -21,6 +22,7 @@ module tb_odd_even_sort;
         .out(out)
     );
 
+    // generates clock signal
     always #(0.5 * CLK_CYCLE) clk = ~ clk;
 
     initial

@@ -1,3 +1,6 @@
+/*
+    k parallel adders with output register
+*/
 module Adder_array #(
     parameter k = 4, // number of adders in this array
     parameter WIDTH = 16 // width of each input
@@ -5,7 +8,7 @@ module Adder_array #(
 (
     input [2 * k * WIDTH - 1:0] in, // combine A and B
     input clk, reset, // asynchronous hign active reset
-    output [k * WIDTH - 1:0] sum 
+    output [k * WIDTH - 1:0] sum  
 );
 
     genvar i;
@@ -29,6 +32,5 @@ module Adder_array #(
         end
     end
     endgenerate
-
 
 endmodule

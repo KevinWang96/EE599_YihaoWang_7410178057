@@ -1,3 +1,6 @@
+/* 
+    Muland Adder Tree used to generate an elements in matrix multiplcation
+*/
 module MulandAddTree #(
     parameter n = 4, // n * n matrix, n is even number
     parameter WIDTH = 8 // the width of each input
@@ -44,6 +47,7 @@ module MulandAddTree #(
                 .sum(stage[i + 1][(n / (2 ** (i + 1))) * 2 * WIDTH - 1:0])
             );
 
+            // outputs
             if((n / (2 ** (i + 1))) == 1)
                 assign out = stage[i + 1];
         end

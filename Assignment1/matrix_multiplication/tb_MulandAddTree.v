@@ -1,11 +1,12 @@
 `timescale 1ns/1ps
+
 module tb_MulandAddTree;
     parameter n = 4; // nxn matrix
     parameter WIDTH = 8; // width of each input
 
     parameter CLK_CYCLE = 10;
 
-    parameter NUM_OF_TEST = 40;
+    parameter NUM_OF_TEST = 40; // how many test patterns
 
     reg [n * WIDTH - 1:0] A, B;
     reg clk, reset;

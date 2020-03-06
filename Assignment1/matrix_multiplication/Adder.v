@@ -1,11 +1,14 @@
+/*
+    k bits adder
+*/
 module Adder #(
-    parameter k = 16
+    parameter k = 16 // the width of input
 )
 (
     input clk, reset, // asynchronous hign active reset
     input [k - 1:0] A, B, // k-bit input
     output [k - 1:0] sum, // k+1 bit sum
-    output carry
+    output carry // carry out
 );
     reg [k:0] out_reg;
     always @(posedge clk, posedge reset)
