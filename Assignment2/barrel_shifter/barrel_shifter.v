@@ -1,13 +1,13 @@
 /*
  * @Author: Yihao Wang
  * @Date: 2020-03-13 12:46:54
- * @LastEditTime: 2020-03-15 03:58:42
+ * @LastEditTime: 2020-04-03 15:23:30
  * @LastEditors: Please set LastEditors
  * @Description: Pipeline barrel shifter
  * @FilePath: /EE599_YihaoWang_7410178057/Assignment2/barrel_shifter.v
  */
  module barrel_shifter #(
-     parameter N = 16, // N should be 2 power of K
+     parameter N = 16, // # of input elements, N should be 2 power of K
      parameter K = 4, // k = log(N)
      parameter WIDTH = 8 // width of input number
  )
@@ -24,6 +24,7 @@
     assign stage_wire[0] = in;
     assign sel_wire[0] = sel;
 
+    // instantiate each pipeline stage using generate block
     genvar i;
     generate
     begin

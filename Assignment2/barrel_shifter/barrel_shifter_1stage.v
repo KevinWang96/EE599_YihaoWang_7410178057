@@ -1,16 +1,16 @@
 /*
  * @Author: Yihao Wang
  * @Date: 2020-03-13 12:25:52
- * @LastEditTime: 2020-03-15 03:58:07
+ * @LastEditTime: 2020-04-03 15:18:43
  * @LastEditors: Please set LastEditors
  * @Description: One stage of barrel shifter design
  * @FilePath: /EE599_YihaoWang_7410178057/Assignment2/barrel_shifter_1stage.v
  */
  module barrel_shifter_1stage #(
-    parameter N = 16,
-    parameter WIDTH = 8,
-    parameter SHIFT_VALUE = 1, // how many location to shift for each input
-    parameter K = 4, // K = log(N)
+    parameter N = 16, // # of elements
+    parameter WIDTH = 8, // data width
+    parameter SHIFT_VALUE = 1, // shift offset
+    parameter K = 4, // K = log2(N) 
     parameter STAGE_NUM = 0 // range from 0 to K-1
  )
  (  
